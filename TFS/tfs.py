@@ -5,13 +5,9 @@ class TFS(object):
 
     def __init__(self, personal_access_token, organization_url):
 
-        # Fill in with your personal access token and org URL
-        self.personal_access_token = personal_access_token
-        self.organization_url = organization_url
-
         # Create a connection to the org
-        self.credentials = BasicAuthentication('', self.personal_access_token)
-        self.connection = VssConnection(base_url=self.organization_url, creds=self.credentials)
+        self.credentials = BasicAuthentication('', personal_access_token)
+        self.connection = VssConnection(base_url=organization_url, creds=self.credentials)
 
 
     def get_projects(self):
@@ -27,7 +23,6 @@ class TFS(object):
         projects = core_client.get_projects()
         
         all_projects_teams = []
-        
 
         for project in projects:
             teams = core_client.get_teams(project.id)
