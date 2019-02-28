@@ -26,6 +26,7 @@ class TFS(object):
 
         for project in projects:
             teams = core_client.get_teams(project.id)
+            teams.additional_properties["project"] = project.id
             all_projects_teams.append (teams)    
         
         return all_projects_teams
