@@ -1,6 +1,13 @@
 from vsts.vss_connection import VssConnection
 from msrest.authentication import BasicAuthentication
 from pprint import pprint
+
+class ProjectDTO(object):
+
+    def __init__(self, project_id, teams):
+        self.project_id = project_id
+        self.teams = teams
+
 class TFS(object):
 
     def __init__(self, personal_access_token, organization_url):
@@ -26,8 +33,8 @@ class TFS(object):
 
         for project in projects:
             teams = core_client.get_teams(project.id)
-            teams.additional_properties["project"] = project.id
-            all_projects_teams.append (teams)    
+            project_DTO = ProjectDTO(project.id, teams)
+            all_projects_teams.append (project_DTO)     
         
         return all_projects_teams
     
