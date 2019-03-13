@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='TFS',  # Required
-    version='0.0.4',  # Required
+    name='tfsx',  # Required
+    version='1.0.0',  # Required
     author="Paulo Sergio dos Santo Junior",
     author_email="paulossjuniort@gmail.com",
     description="Wrapper para acessar as informações do TFS",
