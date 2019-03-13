@@ -3,5 +3,5 @@ Biblioteca customizada para acessar o Team Foundation Server.
 
 ## Instalação
 
-pip install tfs
+pip install tfsx
 
